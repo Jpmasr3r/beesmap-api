@@ -3,13 +3,13 @@
 	"version": "1.0.0",
 	"description": "Beesmap is a service for beekeepers",
 	"type": "module",
-	"main": "./dist/index.js",
+	"main": "",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "tsx --watch index.ts",
 		"start": "node .",
 		"vercel-build": "echo hellow",
-		"build": "tsc",
+		"build": "tsc ./",
 		"format": "biome check --fix --unsafe ./src index.ts"
 	},
 	"author": "João Pedro Anjolim Soares (Jpmasr3r)",
