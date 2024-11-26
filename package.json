@@ -3,11 +3,11 @@
 	"version": "1.0.0",
 	"description": "Beesmap is a service for beekeepers",
 	"type": "module",
-	"main": "index.ts",
+	"main": "./dist/index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "tsx --watch .",
-		"start": "npm run build; node ./dist/api/index.js",
+		"dev": "tsx --watch index.ts",
+		"start": "node .",
 		"vercel-build": "echo hellow",
 		"build": "tsc",
 		"format": "biome check --fix --unsafe ./src index.ts"
