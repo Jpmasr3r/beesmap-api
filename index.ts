@@ -11,5 +11,3 @@ try {
 	const error = exception as Error;
 	console.log(`Error -> ${error.message}`);
 }
-
-export default app;
