@@ -9,7 +9,7 @@
 		"dev": "tsx --watch index.ts",
 		"start": "node .",
 		"vercel-build": "echo hellow",
-		"build": "tsc ./",
+		"build": "tsc ",
 		"format": "biome check --fix --unsafe ./src index.ts"
 	},
 	"author": "João Pedro Anjolim Soares (Jpmasr3r)",
