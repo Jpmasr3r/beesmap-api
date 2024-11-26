@@ -1,16 +1,16 @@
 {
 	"name": "beesmap",
 	"version": "1.0.0",
-	"description": "Beesmap is a microservice for beekeepers",
+	"description": "Beesmap is a service for beekeepers",
 	"type": "module",
-	"main": "",
+	"main": "index.ts",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "tsx --watch ./api/index.ts",
-		"start": "node ./dist/api/index.js",
+		"dev": "tsx --watch .",
+		"start": "npm run build; node ./dist/api/index.js",
 		"vercel-build": "echo hellow",
 		"build": "tsc",
-		"format": "biome check --fix --unsafe ./"
+		"format": "biome check --fix --unsafe ./src index.ts"
 	},
 	"author": "João Pedro Anjolim Soares (Jpmasr3r)",
 	"license": "ISC",

@@ -9,7 +9,6 @@ import vehicleRouter from "./routes/vehicle_routes.js";
 
 const app: express.Express = express();
 app.use(express.json());
-app.use(express.static("public"));
 
 // Routes back-end
 app.use("/user", userRouter);
