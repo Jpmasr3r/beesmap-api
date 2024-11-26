@@ -1,0 +1,37 @@
+{
+	"name": "beesmap",
+	"version": "1.0.0",
+	"description": "Beesmap is a microservice for beekeepers",
+	"type": "module",
+	"main": "",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "tsx --watch ./api/index.ts",
+		"start": "node ./dist/api/index.js",
+		"vercel-build": "echo hellow",
+		"build": "tsc",
+		"format": "biome check --fix --unsafe ./"
+	},
+	"author": "João Pedro Anjolim Soares (Jpmasr3r)",
+	"license": "ISC",
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.2",
+		"@nestjs/mongoose": "^10.0.10",
+		"@types/bcryptjs": "^2.4.6",
+		"@types/dotenv": "^6.1.1",
+		"@types/express": "^5.0.0",
+		"@types/jsonwebtoken": "^9.0.7",
+		"@types/mongoose": "^5.11.96",
+		"@types/node": "^22.7.7",
+		"tsx": "^4.19.1",
+		"typescript": "^5.6.2"
+	},
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"dotenv": "^16.4.5",
+		"express": "^4.21.0",
+		"jsonwebtoken": "^9.0.2",
+		"mongoose": "^8.7.0",
+		"zod": "^3.23.8"
+	}
+}
