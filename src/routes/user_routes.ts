@@ -54,52 +54,6 @@ userRouter.post("/", async (req, res) => {
 	}
 });
 
-//get users
-userRouter.get("/", async (req, res) => {
-	try {
-		const tokenSchema = z.string({ message: "Token inválido" });
-		const token = tokenSchema.parse(req.headers.token);
-		const decoded = verifyToken(token);
-
-		if (!decoded.success) {
-			res.status(401).send({
-				success: false,
-				message: "Erro -> você não devia estar aqui",
-			});
-			return;
-		}
-
-		const adminSchema = z.object({
-			id: z.string({ message: "ID inválido" }),
-		});
-		const user = adminSchema.parse(decoded.data);
-		const selectAdmin = await Admin.findOne({
-			userId: user.id,
-		});
-
-		if (!selectAdmin) {
-			res.status(401).send({
-				success: false,
-				message: "Erro -> você não é um admin",
-			});
-			return;
-		}
-
-		const users = await User.find();
-		res.send({
-			success: true,
-			message: "Sucesso ao listar",
-			data: users,
-		});
-	} catch (exception) {
-		const error = errorExecption(exception);
-		res.status(500).send({
-			success: false,
-			message: error.message,
-		});
-	}
-});
-
 //delete user
 userRouter.delete("/", async (req, res) => {
 	try {

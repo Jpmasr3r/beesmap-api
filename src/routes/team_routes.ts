@@ -1,56 +1,9 @@
 import { Router } from "express";
 import { z } from "zod";
 import { errorExecption, verifyToken } from "../configs/common.js";
-import { Admin, Team, User } from "../configs/mongo_models.js";
+import { Team, User } from "../configs/mongo_models.js";
 
 const teamRouter = Router();
-
-//select teams
-teamRouter.get("/", async (req, res) => {
-	try {
-		const tokenSchema = z.string({ message: "Token inválido" });
-		const token = tokenSchema.parse(req.headers.token);
-		const decoded = verifyToken(token);
-
-		if (!decoded.success) {
-			res.status(401).send({
-				success: false,
-				message: "Erro -> você não devia estar aqui",
-			});
-			return;
-		}
-
-		const adminSchema = z.object({
-			id: z.string({ message: "ID inválido" }),
-		});
-		const user = adminSchema.parse(decoded.data);
-		const selectAdmin = await Admin.findOne({
-			userId: user.id,
-		});
-
-		if (!selectAdmin) {
-			res.status(401).send({
-				success: false,
-				message: "Erro -> você não é um admin",
-			});
-			return;
-		}
-
-		const teams = await Team.find();
-
-		res.status(200).send({
-			success: true,
-			message: "Sucesso ao listar",
-			data: teams,
-		});
-	} catch (exception) {
-		const error = errorExecption(exception);
-		res.status(error.status).send({
-			success: false,
-			message: error.message,
-		});
-	}
-});
 
 //insert team
 teamRouter.post("/", async (req, res) => {
