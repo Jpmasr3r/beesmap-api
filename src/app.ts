@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Router } from "express";
 import adminRouter from "./routes/admin_routes.js";
 import areaRouter from "./routes/area_routes.js";
 import productionRouter from "./routes/production_routes.js";
@@ -18,5 +18,12 @@ app.use("/sale", saleRouter);
 app.use("/prodution", productionRouter);
 app.use("/vehicle", vehicleRouter);
 app.use("/admin", adminRouter);
+
+const mainRouter = Router();
+mainRouter.get("/", (req, res) => {
+	res.send({
+		messase: "Bem vindo ao beesmap",
+	}).status(200);
+});
 
 export default app;
