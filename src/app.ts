@@ -22,8 +22,9 @@ app.use("/admin", adminRouter);
 const mainRouter = Router();
 mainRouter.get("/", (req, res) => {
 	res.send({
-		messase: "Bem vindo ao beesmap",
+		message: "Bem vindo ao beesmap",
 	}).status(200);
 });
+app.use(mainRouter);
 
 export default app;
