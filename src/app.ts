@@ -6,8 +6,10 @@ import saleRouter from "./routes/sale_routes.js";
 import teamRouter from "./routes/team_routes.js";
 import userRouter from "./routes/user_routes.js";
 import vehicleRouter from "./routes/vehicle_routes.js";
+import cors from "cors";
 
 const app: express.Express = express();
+app.use(cors());
 app.use(express.json());
 
 // Routes back-end
